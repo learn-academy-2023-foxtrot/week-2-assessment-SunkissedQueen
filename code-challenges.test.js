@@ -27,16 +27,45 @@ const numbersArray2 = [24, 27, 30, 33, 36]
 
 // a) Create a test with expect statements for each of the variables provided.
 
-const object1 = { number: 15 }
-// Expected output: "15 is divisible by three"
-const object2 = { number: 0 }
-// Expected output: "0 is divisible by three"
-const object3 = { number: -7 }
-// Expected output: "-7 is not divisible by three"
+describe("divisibleByThree", () => {
+  it("takes a object as an argument and decides if the number inside it is evenly divisible by three or not", () => {
+    const object1 = { number: 15 }
+    // Expected output: "15 is divisible by three"
+    const object2 = { number: 0 }
+    // Expected output: "0 is divisible by three"
+    const object3 = { number: -7 }
+    // Expected output: "-7 is not divisible by three"
+
+    expect(divisibleByThree(object1)).toEqual("15 is divisible by three")
+    expect(divisibleByThree(object2)).toEqual("0 is divisible by three")
+    expect(divisibleByThree(object3)).toEqual("-7 is not divisible by three")
+  })
+})
+
+// Good failure: ReferenceError: divisibleByThree is not defined
 
 // b) Create the function that makes the test pass.
 
 // Pseudo code:
+// function name: divisibleByThree
+// input: object
+// output: string that includes the number within the object
+// process: 
+  // use dot notation to get access to the value which is a number
+  // divide that number by three, if there is a remainder then state that is not divisible by three
+  // if there is not a remainder then state that is divisible by three
+  // return the statement using string interpolation
+
+// Function expression
+const divisibleByThree = (object) => {
+  if(object.number % 3 !== 0) {
+    return `${object.number} is not divisible by three`
+  } else if(object.number % 3 === 0) {
+    return `${object.number} is divisible by three`
+  }
+}
+
+// Refactor: ternary operator
 
 // --------------------2) Create a function that takes in an array of words and returns an array with all the words capitalized.
 
